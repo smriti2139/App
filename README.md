@@ -1,8 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>To-Do App</title>
- <style>
-body {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <style>
+        body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -37,7 +40,7 @@ body {
 .task-item button {
     margin-left: 10px;
 }
-</style>
+    </style>
 </head>
 <body>
     <div class="container">
@@ -52,8 +55,10 @@ body {
     document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('task-input');
     const taskList = document.getElementById('task-list');
+    // Load tasks from local storage
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     tasks.forEach(task => addTaskToDOM(task));
+    // Add task on Enter key press
     taskInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             const task = {
@@ -67,6 +72,7 @@ body {
             taskInput.value = '';
         }
     });
+    // Add task to DOM
     function addTaskToDOM(task) {
         const li = document.createElement('li');
         li.className = `task-item ${task.completed ? 'completed' : ''}`;
@@ -79,6 +85,7 @@ body {
         `;
         taskList.appendChild(li);
     }
+    // Handle task actions
     taskList.addEventListener('click', (e) => {
         const id = e.target.closest('.task-item').dataset.id;
         const task = tasks.find(task => task.id == id);
@@ -98,8 +105,9 @@ body {
             localStorage.setItem('tasks', JSON.stringify(tasks));
             e.target.closest('.task-item').classList.toggle('completed', task.completed);
         }
-    }
+    });
 });
+
 </script>
 </body>
 </html>
