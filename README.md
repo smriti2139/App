@@ -48,7 +48,6 @@ body {
             <textarea id="task-input" placeholder="Enter a new task"></textarea>
         </div>
     </div>
-</body>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('task-input');
@@ -102,4 +101,5 @@ body {
     }
 });
 </script>
+</body>
 </html>
