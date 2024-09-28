@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do App</title>
     <style>
         body {
@@ -13,24 +10,20 @@
     height: 100vh;
     margin: 0;
 }
-
 .container {
     display: flex;
     width: 80%;
     height: 80%;
     border: 1px solid #ccc;
 }
-
 .left-pane, .right-pane {
     flex: 1;
     padding: 20px;
 }
-
 #task-list {
     list-style-type: none;
     padding: 0;
 }
-
 .task-item {
     display: flex;
     justify-content: space-between;
@@ -38,11 +31,9 @@
     padding: 10px;
     border-bottom: 1px solid #ccc;
 }
-
 .task-item.completed {
     text-decoration: line-through;
 }
-
 .task-item button {
     margin-left: 10px;
 }
