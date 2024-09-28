@@ -1,8 +1,8 @@
 <html>
 <head>
-    <title>To-Do App</title>
-    <style>
-        body {
+<title>To-Do App</title>
+ <style>
+body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -99,8 +99,7 @@
             localStorage.setItem('tasks', JSON.stringify(tasks));
             e.target.closest('.task-item').classList.toggle('completed', task.completed);
         }
-    });
+    }
 });
-
 </script>
 </html>
