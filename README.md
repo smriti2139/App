@@ -46,8 +46,7 @@
 .task-item button {
     margin-left: 10px;
 }
-
-    </style>
+</style>
 </head>
 <body>
     <div class="container">
@@ -63,12 +62,8 @@
     document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('task-input');
     const taskList = document.getElementById('task-list');
-
-    // Load tasks from local storage
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     tasks.forEach(task => addTaskToDOM(task));
-
-    // Add task on Enter key press
     taskInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             const task = {
@@ -82,8 +77,6 @@
             taskInput.value = '';
         }
     });
-
-    // Add task to DOM
     function addTaskToDOM(task) {
         const li = document.createElement('li');
         li.className = `task-item ${task.completed ? 'completed' : ''}`;
@@ -96,12 +89,9 @@
         `;
         taskList.appendChild(li);
     }
-
-    // Handle task actions
     taskList.addEventListener('click', (e) => {
         const id = e.target.closest('.task-item').dataset.id;
         const task = tasks.find(task => task.id == id);
-
         if (e.target.classList.contains('delete')) {
             tasks.splice(tasks.indexOf(task), 1);
             localStorage.setItem('tasks', JSON.stringify(tasks));
